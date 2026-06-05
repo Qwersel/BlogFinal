@@ -1,8 +1,10 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: "postgres",
+// Use SQLite for demo purposes (no database setup needed)
+const sequelize = new Sequelize({
+  dialect: "sqlite",
+  storage: "database.sqlite",
   logging: false,
 });
 
