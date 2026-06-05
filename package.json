@@ -1,7 +1,16 @@
 {
-  "name": "node-starter",
-  "private": true,
+  "name": "cms-blogging-api",
+  "version": "1.0.0",
+  "description": "RESTful CRUD API for a Content Management System (Blogging Platform)",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "pg": "^8.13.0",
+    "sequelize": "^6.37.3"
   }
 }
