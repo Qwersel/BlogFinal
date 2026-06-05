@@ -6,14 +6,14 @@ A RESTful API for a Content Management System built with Node.js, Express.js, Se
 
 - **Node.js** - Runtime
 - **Express.js** - Web framework
-- **PostgreSQL** - Database (hosted on Supabase)
+- **PostgreSQL** - Database
 - **Sequelize** - ORM
 
 ## Project Structure
 
 ```
 ├── config/
-│   └── db.js            # Sequelize database connection
+│   └── db.js            # Database connection
 ├── controllers/
 │   ├── authorController.js
 │   └── articleController.js
@@ -63,10 +63,8 @@ Create a `.env` file in the project root:
 
 ```
 PORT=3000
-DATABASE_URL=postgres://postgres:[YOUR-PASSWORD]@db.uutfqigkttkvutjsfnyd.supabase.co:5432/postgres
+DATABASE_URL=postgres://postgres:YOUR_PASSWORD@localhost:5432/your_database_name
 ```
-
-Replace `[YOUR-PASSWORD]` with your Supabase database password (found in Supabase Dashboard > Settings > Database).
 
 ### 3. Start the server
 
@@ -96,79 +94,9 @@ The server will start on `http://localhost:3000`.
 | POST   | /api/articles       | Create an article  |
 | GET    | /api/articles       | Get all articles   |
 | GET    | /api/articles/:id   | Get article by ID  |
-| PUT    | /api/articles/:id  | Update article     |
+| PUT    | /api/articles/:id   | Update article     |
 | PATCH  | /api/articles/:id   | Update article     |
 | DELETE | /api/articles/:id   | Delete article     |
-
-## cURL Examples
-
-### Create an Author
-
-```bash
-curl -X POST http://localhost:3000/api/authors \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Jane Doe", "email": "jane@example.com", "bio": "Tech writer"}'
-```
-
-### Get All Authors
-
-```bash
-curl http://localhost:3000/api/authors
-```
-
-### Get Author by ID (includes their articles)
-
-```bash
-curl http://localhost:3000/api/authors/1
-```
-
-### Update an Author
-
-```bash
-curl -X PUT http://localhost:3000/api/authors/1 \
-  -H "Content-Type: application/json" \
-  -d '{"bio": "Updated biography"}'
-```
-
-### Delete an Author
-
-```bash
-curl -X DELETE http://localhost:3000/api/authors/1
-```
-
-### Create an Article
-
-```bash
-curl -X POST http://localhost:3000/api/articles \
-  -H "Content-Type: application/json" \
-  -d '{"title": "My First Post", "content": "Hello world!", "author_id": 1}'
-```
-
-### Get All Articles (includes author name)
-
-```bash
-curl http://localhost:3000/api/articles
-```
-
-### Get Article by ID
-
-```bash
-curl http://localhost:3000/api/articles/1
-```
-
-### Update an Article
-
-```bash
-curl -X PUT http://localhost:3000/api/articles/1 \
-  -H "Content-Type: application/json" \
-  -d '{"title": "Updated Title"}'
-```
-
-### Delete an Article
-
-```bash
-curl -X DELETE http://localhost:3000/api/articles/1
-```
 
 ## HTTP Status Codes
 
